@@ -1,11 +1,9 @@
 ## Linux Privilege Escalation:
-- By (Sai Sathvik)[]
-- Room: https://tryhackme.com/room/linprivesc
-- Exploit in C-lang: https://github.com/jivoi/pentest/blob/master/shell/rootshell.c 
+- By [Sai Sathvik](https://linktr.ee/saisathvikruppa)
+- In order to understand what a particular Linux command does, use: https://www.explainshell.com/
 - Important Resource: https://null-byte.wonderhowto.com/how-to/crack-shadow-hashes-after-getting-root-linux-system-0186386/
 - Privilege escalation is the technique used to escalate our privileges from lower user to higher user(interms of privileges)
-- once we obtain the higher level privilege on the system then we can do a lot of things on that system
-- `2>/dev/null` means to ignore any errors that are obtained
+- Once we obtain the higher level privilege on the system then we can do a lot of things on that system
 
 ---------------------
 ### Enumeration: 
@@ -36,7 +34,7 @@
 	* `netstat -tp` - connections with service name and pid we can also add "l" for only listening ports
 	* `netstat -i` - interface related information
 	* `netstat -ano`
-14. find command which helps us in finding lot of stuff,
+14. **find** command which helps us in finding lot of stuff,
 	- Syntax: `find <path> <options> <regex/name>`
 	find . -name flag1.txt: find the file named “flag1.txt” in the current directory
 	- `find /home -name flag1.txt` : find the file names “flag1.txt” in the /home directory
@@ -55,7 +53,7 @@
 	- `find / -perm -o x -type d 2>/dev/null` : Find world-executable folders
 	- We can also find programming languages and supported languages: `find / -name perl*`, `find / -name python*`, `find / -name gcc*` ...etc
 	- `find / -perm -u=s -type f 2>/dev/null` : Find files with the SUID bit, which allows us to run the file with a higher privilege level than the current user. This is important!
-15. we can even make use of "grep", "locate", "sort"...etc
+15. We can even make use of "grep", "locate", "sort"...etc
 
 ----------------
 ### Automated Enumeration Scripts:
@@ -80,7 +78,7 @@
 
 ----------------------
 ### SUID:(Set owner User ID)
-- its called as setuid, which gives specific permissions to run a file as root/owner
+- Its a kind of permission which gives specific permissions to run a file as root/owner
 - This is really helpful to test.
 - `find / -perm -u=s -type f 2>/dev/null` this will list all the suid files
 - Then later search in GTFObins and look for the way to bypass
@@ -126,3 +124,7 @@
 - Now go to the folder we created and create a binary which gives us root on running.
 - Then go back to the target machine and we can view the binary we created in the place we mounted, now run that and get root privileges!(do note that giving executable rights is not sufficient, we also need to give share rights by `chmod +s <binary>`)
 - Then we're good to go!
+
+---------------------------
+
+## Thank you!!
