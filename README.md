@@ -82,7 +82,7 @@
 - This is really helpful to test.
 - `find / -perm -u=s -type f 2>/dev/null` this will list all the suid files
 - Then later search in GTFObins and look for the way to bypass
-- Only googling works here, for example we can simply use /etc/shadow and /etc/passwd to find the user passwords
+- Resource: https://null-byte.wonderhowto.com/how-to/crack-shadow-hashes-after-getting-root-linux-system-0186386/
 
 ------------------
 ### Capabilities:
